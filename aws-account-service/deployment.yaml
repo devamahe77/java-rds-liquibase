@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-account-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aws-account-service
+  template:
+    metadata:
+      labels:
+        app: aws-account-service
+    spec:
+      containers:
+      - name: aws-account-service
+        image: <your-docker-repo>/aws-account-service:latest
+        ports:
+        - containerPort: 8080
